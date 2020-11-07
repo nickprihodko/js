@@ -1,3 +1,5 @@
-Игра "Морской бой"
+Game "Sea battle"
 
-Vanilla JS
+My first real experience on Vanilla JS
+
+You can draw your ships manually with mouse or use button "auto"
