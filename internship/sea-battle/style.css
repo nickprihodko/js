@@ -1,0 +1,214 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(-100%);
+  }
+  70% {
+    transform: translateY(30px);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: "PT Sans Narrow Bold", Courier, sans-serif;
+}
+
+.game {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+
+  text-align: center;
+
+  border: 1px dashed black;
+}
+
+h1 {
+  width: 100%;
+}
+
+button {
+  height: 50px;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.battlefield {
+  margin-bottom: 20px;
+
+  background-color: #f8f5f2;
+  border: 2px solid darkblue;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.battlefield th,
+.battlefield td {
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #4a4a4a;
+}
+
+.battlefield td {
+  position: relative;
+
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.battlefield td:hover {
+  background-color: lightcoral;
+}
+
+.battlefield .limit {
+  opacity: 0.5;
+  background-color: #4495cc;
+}
+
+.battlefield .ship {
+  background-color: lightsalmon;
+}
+
+.battlefield .hide {
+  opacity: 1;
+  background-color: lightblue;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.wounded:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+
+  width: 35px;
+  height: 4px;
+
+  background-color: red;
+
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.wounded:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+
+  width: 35px;
+  height: 4px;
+
+  background-color: red;
+
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.battlefield .miss:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  background-color: black;
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.logs {
+  width: 100%;
+}
+
+/* popup */
+.popup {
+  position: fixed;
+  top: 35px;
+  left: 50%;
+
+  display: none;
+  width: 960px;
+  margin-left: -480px;
+  box-sizing: border-box;
+
+  border: 2px solid darkblue;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.popup--show {
+  display: block;
+
+  animation: bounce 0.6s;
+}
+
+.popup__close {
+  position: absolute;
+  top: 0;
+  right: -35px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.popup__close::before,
+.popup__close::after {
+  content: "";
+  position: absolute;
+  left: 0;
+
+  width: 30px;
+  height: 2px;
+
+  background-color: darkblue;
+}
+
+.popup__close::before {
+  transform: rotate(45deg);
+}
+
+.popup__close::after {
+  transform: rotate(-45deg);
+}
+
+.popup__close:hover::before {
+  transform: rotate(225deg);
+  transition: 0.6s;
+}
+
+.popup__close:hover::after {
+  transform: rotate(135deg);
+  transition: 0.6s;
+}
+
+.popup > img {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.popup p {
+  text-align: center;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 700;
+}
